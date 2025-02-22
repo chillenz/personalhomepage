@@ -183,3 +183,62 @@ a img{
     margin:0px 50px;
     user-select: none;
 }
+
+#greenborder{
+    position: absolute;
+    background-color: lightgreen;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+}
+
+#greenborder:hover{
+    opacity: 1;
+}
+
+#anotherwebsite{
+    height: calc(100% - 84px);
+    flex-wrap: wrap;
+    column-gap: 60px;
+    align-content: start;
+    row-gap: 40px;
+    width: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 150px;
+    display: none;
+}
+
+#anotherwebsite a{
+    border: 2px black solid;
+    word-break: break-all;
+    color: black;
+    text-decoration: none;
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#green{
+    background-color: lightgreen;
+}
+
+#purple{
+    background-color: #7a1fa3;
+}
+
+#darkred{
+    background: linear-gradient(to top left, #869199 50%, #650002 50%);
+}
+
+#red{
+    background: linear-gradient(to top left, #ed2855 50%, #1f1e1e 50%);
+}
+
+#orange{
+    background: linear-gradient(to top left, #fe9100 50%, #0e0e0e 50%);
+}

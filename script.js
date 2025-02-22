@@ -32,6 +32,8 @@ const next = document.getElementById('next')
 let equation = '';
 let solvedEquation = '';
 const maintitle = document.getElementById('maintitle');
+const greenborder = document.getElementById('greenborder');
+const anotherwebsite = document.getElementById('anotherwebsite')
 
 
 calculator.addEventListener('keydown', function(event) {
@@ -230,3 +232,18 @@ function changepage(){
 
 next.addEventListener('click', changepage)
 last.addEventListener('click', changepage)
+
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        calculator.focus();
+    }
+});
+
+function opengreen(){
+    mywebsite.style.display = 'none';
+    website.style.display = 'none';
+    anotherwebsite.style.display = 'flex';
+}
+
+greenborder.addEventListener('click', opengreen)
