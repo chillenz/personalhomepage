@@ -38,12 +38,19 @@ const anotherwebsite = document.getElementById('anotherwebsite')
 
 calculator.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-        console.log('clicked enter')
         equation = calculator.value;
         equation = equation.replace('^', '**');
-        equation = equation.replace('%', '/100 *')
+        equation = equation.replace('%', '/100 *');
         equation = equation.replace(/sqrt\(/g, 'Math.sqrt(');
         equation = equation.replace(/(\d)\(/g, '$1*(');
+
+        // Ensure ans is a number
+        if (!isNaN(calculatoroutput.value)) {
+            equation = equation.replace(/ans/g, `(${calculatoroutput.value})`);
+        } else {
+            equation = equation.replace(/ans/g, '(0)'); // Default to 0 if ans is undefined
+        }
+
         solvedEquation = eval(equation);
         calculatoroutput.value = solvedEquation;
     }
@@ -51,20 +58,11 @@ calculator.addEventListener('keydown', function(event) {
 
 function calcbutton(theClickedButton){
     if (theClickedButton==='clear'){
-        console.log('clear clicked')
         equation = '';
         solvedEquation = '';
         calculator.value = '';
         calculatoroutput.value = '';
     } else{
-        console.log('round clicked')
-        equation = calculator.value;
-        equation = equation.replace('^', '**');
-        equation = equation.replace('%', '/100 *')
-        equation = equation.replace(/sqrt\(/g, 'Math.sqrt(');
-        equation = equation.replace(/(\d)\(/g, '$1*(');
-        solvedEquation = eval(equation);
-        calculatoroutput.value = solvedEquation;
         calculatoroutput.value = parseFloat(calculatoroutput.value).toFixed(2);
     }
 }
